@@ -1,0 +1,48 @@
+// may 2015  Que - 3
+
+package cp;
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Chapd_cc 
+{
+	public static void main(String[] args)
+	{
+		Chapd_cc ob = new Chapd_cc();
+		ob.go();
+	}
+	
+	BigInteger getPow(BigInteger a)
+	{
+		for(int i = 0 ; i<6 ; i++)
+		{
+			a = a.multiply(a);
+		}
+		return a;
+	}
+	
+	void go()
+	{
+		Scanner in = new Scanner(System.in);
+		
+		int t = in.nextInt();
+		while(t-- > 0)
+		{
+			BigInteger a = in.nextBigInteger();
+			BigInteger b = in.nextBigInteger();
+			
+			a = getPow(a);
+			if( (a.mod(b)).equals(BigInteger.ZERO) )
+			{
+				System.out.println("Yes");
+			}
+			else
+			{
+				System.out.println("No");
+			}
+		}
+		
+		in.close();
+	}
+}
